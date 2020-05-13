@@ -1,0 +1,37 @@
+{
+  "name": "node-docs",
+  "version": "1.0.0",
+  "description": "terminal line show node.js api docs",
+  "main": "bin/node-docs-cli.js",
+  "__dirname": "__dirname",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangwinning/node-docs.git"
+  },
+  "author": "zhangwinning",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "5.1.0",
+    "marked": "^1.0.0",
+    "marked-terminal": "^4.1.0",
+    "split2": "^3.1.1",
+    "through2": "^3.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  },
+  "bugs": {
+    "url": "https://github.com/zhangwinning/node-docs/issues"
+  },
+  "homepage": "https://github.com/zhangwinning/node-docs#readme",
+  "keywords": [
+    "node.js",
+    "doc",
+    "api",
+    "terminal",
+    "line"
+  ]
+}
