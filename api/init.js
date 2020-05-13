@@ -33,7 +33,10 @@ function gettargetPath(file) {
 }
 
 function main() {
+  // todo source file maybe download from remote server,
+  //  source file maybe got different code from different versions.however current local generate.
   const fileList = getFileList("./source");
+  if (!fileList || !fileList.length) return;
   for (let file of fileList) {
     const filePath = getsourcePath(file);
     const targetPath = gettargetPath(file);
