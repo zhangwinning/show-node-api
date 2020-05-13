@@ -6,6 +6,28 @@ let fs = require("fs");
 let program = require("commander");
 const VERSION = require("../package").version;
 
+before(program, "unknownOption", function () {
+  // allow unknown options if help was shown, to prevent trailing error
+  this._allowUnknownOption = this._helpShown;
+
+  // show help if not yet shown
+  if (!this._helpShown) {
+    program.outputHelp();
+  }
+});
+
+/**
+ * Install a before function; AOP.
+ */
+function before(obj, method, fn) {
+  var old = obj[method];
+
+  obj[method] = function () {
+    fn.call(this);
+    old.apply(this, arguments);
+  };
+}
+
 program
   .name("node-docs")
   .version(VERSION, "    --version")
@@ -17,7 +39,7 @@ function getPath(moduleName) {
   return path.join(__dirname, "..", "api", "target", moduleName + ".md");
 }
 
-function showList(content) {
+function showContent(content) {
   spawn(`cat <<< "${content}" | less -r`, {
     stdio: "inherit", // use the current shell for stdio
     shell: true,
@@ -29,16 +51,13 @@ function getFileList(dir) {
   return list.reduce((acc, cur, index) => {
     if (/.md/.test(cur)) {
       let item = "";
-      if (index) {
-        item += "\n";
-      }
       item += cur.replace(".md", "");
       acc.push(item);
     }
     return acc;
   }, []);
 }
-function showContent(moduleName) {
+function showFileContent(moduleName) {
   const filePath = getPath(moduleName);
   spawn(`cat ${filePath} | less -r`, {
     stdio: "inherit", // use the current shell for stdio
@@ -46,15 +65,26 @@ function showContent(moduleName) {
   });
 }
 
+function formatModuleName(pathName) {
+  return path
+    .basename(pathName)
+    .replace(/[^A-Za-z0-9.-]+/g, "-")
+    .replace(/^[-_.]+|-+$/g, "")
+    .toLowerCase();
+}
+
 function main() {
-  const moduleName = program.args.shift();
+  let moduleName = program.args.shift();
+
+  moduleName = formatModuleName(moduleName);
   // diff conditions
-  console.log("==>", program.args, program.list);
+  const fileNames = getFileList(path.join(__dirname, "..", "api", "target"));
   if (program.list) {
-    const fileNames = getFileList(path.join(__dirname, "..", "api", "target"));
-    showList(fileNames);
-  } else if (moduleName) {
-    showContent(moduleName);
+    showContent(fileNames.join("\n"));
+  } else if (moduleName && fileNames.indexOf(moduleName) >= 0) {
+    showFileContent(moduleName);
+  } else {
+    showContent(`not find of ${moduleName} module, please retype attempt...`);
   }
 }
 
