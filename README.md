@@ -17,7 +17,7 @@ npm install -g show-node-api
 ## Command Line Options
 
 ```
-Usage: node-docs [moduleName]
+Usage: show-node-api [moduleName]
 
 Options:
       --version  output the version number
