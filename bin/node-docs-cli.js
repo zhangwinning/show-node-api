@@ -74,7 +74,7 @@ function formatModuleName(pathName) {
 }
 
 function main() {
-  let moduleName = program.args.shift();
+  let moduleName = program.args.shift() || ".";
 
   moduleName = formatModuleName(moduleName);
   // diff conditions
