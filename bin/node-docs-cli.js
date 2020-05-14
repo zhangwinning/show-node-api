@@ -29,7 +29,7 @@ function before(obj, method, fn) {
 }
 
 program
-  .name("node-docs")
+  .name("show-node-api")
   .version(VERSION, "    --version")
   .usage("[moduleName]")
   .option("-l, --list", "supported modules")

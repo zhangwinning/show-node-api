@@ -1,6 +1,6 @@
 {
   "name": "show-node-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "command line show node.js doc api",
   "main": "bin/node-docs-cli.js",
   "bin": {
