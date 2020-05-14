@@ -61,7 +61,8 @@ function showFileContent(moduleName) {
   const filePath = getPath(moduleName);
   spawn(`cat ${filePath} | less -r`, {
     stdio: "inherit", // use the current shell for stdio
-    shell: true,
+    // shell: true,
+    shell: '/bin/bash' //https://github.com/nodejs/help/issues/2700
   });
 }
 
