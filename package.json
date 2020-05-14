@@ -1,17 +1,17 @@
 {
   "name": "show-node-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "command line show node.js doc api",
-  "main": "bin/node-docs-cli.js",
+  "main": "",
   "bin": {
-    "show-node-api": "./bin/node-docs-cli.js"
+    "show-node-api": ""
   },
   "scripts": {
     "test": "mocha ./test/cmd.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhangwinning/node-docs.git"
+    "url": "git+https://github.com/zhangwinning/show-node-api.git"
   },
   "author": "zhangwinning",
   "license": "ISC",
@@ -27,12 +27,12 @@
     "should": "^13.1.3"
   },
   "bugs": {
-    "url": "https://github.com/zhangwinning/node-docs/issues"
+    "url": "https://github.com/zhangwinning/show-node-api/issues"
   },
   "engines": {
     "node": ">= 8.12.0"
   },
-  "homepage": "https://github.com/zhangwinning/node-docs#readme",
+  "homepage": "https://github.com/zhangwinning/show-node-api#readme",
   "keywords": [
     "node.js",
     "doc",
