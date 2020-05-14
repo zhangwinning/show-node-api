@@ -1,10 +1,10 @@
 {
-  "name": "node-docs",
-  "version": "1.0.0",
-  "description": "terminal line show node.js api docs",
+  "name": "show-node-api",
+  "version": "0.0.2",
+  "description": "command line show node.js doc api",
   "main": "bin/node-docs-cli.js",
   "bin": {
-    "node-docs": "./bin/node-docs-cli.js"
+    "show-node-api": "./bin/node-docs-cli.js"
   },
   "scripts": {
     "test": "mocha ./test/cmd.js"

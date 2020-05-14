@@ -11,5 +11,7 @@ node_js:
 script:
   # Run test script
   - npm run test
-os: osx
+os:
+  - linux
+  - osx
 
