@@ -7,15 +7,12 @@ This is convenient for viewing documents from the command line.
 
 ## demo
 
-
 ![haha](./image/QQ20200514-195034-HD.gif)
-
 
 ## Installation
 
 ```
 npm install -g show-node-api
-
 ```
 
 ## Command Line Options
